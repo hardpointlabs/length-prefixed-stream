@@ -1,5 +1,9 @@
 # length-prefixed-stream
 
+> [!NOTE]  
+> This fork is purely for internal use at present. Please don't add this library as a dependency until
+> we've stabilised things.
+
 Streaming equivalent of [length-prefixed-message](https://github.com/sorribas/length-prefixed-message).
 This module allow you to send `Buffer`s with a varint length prefix to ensure that they will arrive unpartioned
 
