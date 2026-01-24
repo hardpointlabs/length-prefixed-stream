@@ -1,9 +1,8 @@
-var stream = require('readable-stream')
-var encode = require('./encode')
-var decode = require('./decode')
-var bufferAlloc = require('buffer-alloc')
+import { stream } from 'node:stream';
+import encode from './encode.mjs';
+import decode from './decode.mjs';
 
-var buf = bufferAlloc(32 * 1024)
+var buf = Buffer.alloc(32 * 1024)
 var source = new stream.Readable()
 var sent = 0
 

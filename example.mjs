@@ -1,4 +1,4 @@
-var {encode} = require('.')
+import { encode } from './index.mjs'
 
 var encoder = encode()
 encoder.on('data', function (data) {

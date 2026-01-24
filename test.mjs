@@ -1,8 +1,8 @@
-var tape = require('tape')
-var through = require('through2')
-var concat = require('concat-stream')
-var from = require('from2')
-var lpstream = require('./')
+import tape from 'tape'
+import through from 'through2'
+import concat from 'concat-stream'
+import from from 'from2'
+import lpstream from './index.mjs'
 
 var chunk = function (ultra) {
   return through(function (data, enc, cb) {
@@ -16,8 +16,8 @@ var chunk = function (ultra) {
 }
 
 tape('encode -> decode', function (t) {
-  var e = lpstream.encode()
-  var d = lpstream.decode()
+  var e = new lpstream.Encoder()
+  var d = new lpstream.Decoder()
 
   d.on('data', function (data) {
     t.same(data.toString(), 'hello world')
@@ -29,8 +29,8 @@ tape('encode -> decode', function (t) {
 })
 
 tape('buffered encode -> buffered decode', function (t) {
-  var e = lpstream.encode()
-  var d = lpstream.decode()
+  var e = new lpstream.Encoder()
+  var d = new lpstream.Decoder()
 
   d.on('data', function (data) {
     t.same(data.toString(), 'hello world')
@@ -48,8 +48,8 @@ tape('buffered encode -> buffered decode', function (t) {
 tape('encode -> decode twice', function (t) {
   t.plan(2)
 
-  var e = lpstream.encode()
-  var d = lpstream.decode()
+  var e = new lpstream.Encoder()
+  var d = new lpstream.Decoder()
 
   var expects = ['hello world', 'hola mundo']
 
@@ -65,8 +65,8 @@ tape('encode -> decode twice', function (t) {
 tape('encode -> decode storm', function (t) {
   t.plan(50)
 
-  var e = lpstream.encode()
-  var d = lpstream.decode()
+  var e = new lpstream.Encoder()
+  var d = new lpstream.Decoder()
   var expects = []
 
   for (var i = 0; i < 50; i++) {
@@ -85,8 +85,8 @@ tape('encode -> decode storm', function (t) {
 })
 
 tape('chunked encode -> decode', function (t) {
-  var e = lpstream.encode()
-  var d = lpstream.decode()
+  var e = new lpstream.Encoder()
+  var d = new lpstream.Decoder()
 
   d.on('data', function (data) {
     t.same(data.toString(), 'hello world')
@@ -100,8 +100,8 @@ tape('chunked encode -> decode', function (t) {
 tape('chunked encode -> decode twice', function (t) {
   t.plan(2)
 
-  var e = lpstream.encode()
-  var d = lpstream.decode()
+  var e = new lpstream.Encoder()
+  var d = new lpstream.Decoder()
 
   var expects = ['hello world', 'hola mundo']
 
@@ -117,8 +117,8 @@ tape('chunked encode -> decode twice', function (t) {
 tape('chunked encode -> decode storm', function (t) {
   t.plan(50)
 
-  var e = lpstream.encode()
-  var d = lpstream.decode()
+  var e = new lpstream.Encoder()
+  var d = new lpstream.Decoder()
   var expects = []
 
   for (var i = 0; i < 50; i++) {
@@ -137,8 +137,8 @@ tape('chunked encode -> decode storm', function (t) {
 })
 
 tape('ultra chunked encode -> decode', function (t) {
-  var e = lpstream.encode()
-  var d = lpstream.decode()
+  var e = new lpstream.Encoder()
+  var d = new lpstream.Decoder()
 
   d.on('data', function (data) {
     t.same(data.toString(), 'hello world')
@@ -152,8 +152,8 @@ tape('ultra chunked encode -> decode', function (t) {
 tape('ultra chunked encode -> decode twice', function (t) {
   t.plan(2)
 
-  var e = lpstream.encode()
-  var d = lpstream.decode()
+  var e = new lpstream.Encoder()
+  var d = new lpstream.Decoder()
 
   var expects = ['hello world', 'hola mundo']
 
@@ -169,8 +169,8 @@ tape('ultra chunked encode -> decode twice', function (t) {
 tape('ultra chunked encode -> decode storm', function (t) {
   t.plan(50)
 
-  var e = lpstream.encode()
-  var d = lpstream.decode()
+  var e = new lpstream.Encoder()
+  var d = new lpstream.Decoder()
   var expects = []
 
   for (var i = 0; i < 50; i++) {
@@ -191,8 +191,8 @@ tape('ultra chunked encode -> decode storm', function (t) {
 tape('multibyte varints', function (t) {
   t.plan(5)
 
-  var e = lpstream.encode()
-  var d = lpstream.decode()
+  var e = new lpstream.Encoder()
+  var d = new lpstream.Decoder()
   var expects = []
 
   for (var i = 0; i < 5; i++) {
@@ -215,8 +215,8 @@ tape('overflow varint pool', function (t) {
 
   var i = 0
   var buf = Buffer.allocUnsafe(64 * 1024)
-  var e = lpstream.encode()
-  var d = lpstream.decode()
+  var e = new lpstream.Encoder()
+  var d = new lpstream.Decoder()
 
   d.on('data', function (data) {
     t.same(buf, data)
@@ -236,7 +236,7 @@ tape('overflow varint pool', function (t) {
 })
 
 tape('message limit', function (t) {
-  var d = lpstream.decode({ limit: 10 })
+  var d = new lpstream.Decoder({ limit: 10 })
 
   d.on('error', function (err) {
     t.ok(err, 'should error')
@@ -247,13 +247,13 @@ tape('message limit', function (t) {
 })
 
 tape('allow empty', function (t) {
-  var d = lpstream.decode()
+  var d = new lpstream.Decoder()
 
   d.on('data', function () {
     t.fail('should not emit empty buffers')
   })
   d.on('end', function () {
-    d = lpstream.decode({ allowEmpty: true })
+    d = new lpstream.Decoder({ allowEmpty: true })
     d.on('data', function (data) {
       t.same(data, Buffer.alloc(0), 'empty buffer')
       t.end()

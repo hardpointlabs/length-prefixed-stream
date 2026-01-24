@@ -1,12 +1,11 @@
 {
   "name": "length-prefixed-stream",
+  "type": "module",
   "version": "2.0.0",
   "description": "Streaming length prefixed buffers",
-  "main": "index.js",
+  "main": "index.mjs",
   "dependencies": {
-    "inherits": "^2.0.3",
-    "readable-stream": "^3.1.1",
-    "varint": "^5.0.0"
+    "varint": "^6.0.0"
   },
   "devDependencies": {
     "concat-stream": "^2.0.0",
@@ -16,7 +15,7 @@
     "through2": "^3.0.0"
   },
   "scripts": {
-    "test": "standard && tape test.js"
+    "test": "standard && tape test.mjs"
   },
   "repository": {
     "type": "git",
