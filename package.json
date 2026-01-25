@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mafintosh/length-prefixed-stream"
+    "url": "https://github.com/hardpointlabs/length-prefixed-stream"
   },
   "keywords": [
     "varint",
@@ -43,7 +43,7 @@
   "author": "Mathias Buus",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mafintosh/length-prefixed-stream/issues"
+    "url": "https://github.com/hardpointlabs/length-prefixed-stream/issues"
   },
-  "homepage": "https://github.com/mafintosh/length-prefixed-stream"
+  "homepage": "https://github.com/hardpointlabs/length-prefixed-stream"
 }
