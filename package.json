@@ -45,5 +45,10 @@
   "bugs": {
     "url": "https://github.com/hardpointlabs/length-prefixed-stream/issues"
   },
-  "homepage": "https://github.com/hardpointlabs/length-prefixed-stream"
+  "homepage": "https://github.com/hardpointlabs/length-prefixed-stream",
+  "release": {
+    "branches": [
+      "master"
+    ]
+  }
 }
