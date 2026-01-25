@@ -1,5 +1,5 @@
 {
-  "name": "length-prefixed-stream",
+  "name": "@hardpointlabs/length-prefixed-stream",
   "type": "module",
   "version": "2.0.0",
   "description": "Streaming length prefixed buffers",
