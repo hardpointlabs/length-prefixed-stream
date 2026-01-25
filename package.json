@@ -4,6 +4,12 @@
   "version": "2.0.0",
   "description": "Streaming length prefixed buffers",
   "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "directories": {
+    "src": "src",
+    "dist": "dist",
+    "test": "test"
+  },
   "dependencies": {
     "@types/varint": "^6.0.3",
     "varint": "^6.0.0"
