@@ -72,7 +72,7 @@ export class Decoder extends Transform {
 
     if (!this._message) {
       if (missing <= free) { // fast track - no copy
-        this._push(data.slice(offset, offset + missing));
+        this._push(data.subarray(offset, offset + missing));
         return offset + missing;
       }
       this._message = Buffer.allocUnsafe(missing);
