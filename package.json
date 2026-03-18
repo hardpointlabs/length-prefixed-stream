@@ -11,10 +11,10 @@
     "test": "test"
   },
   "dependencies": {
-    "@types/varint": "^6.0.3",
     "varint": "^6.0.0"
   },
   "devDependencies": {
+    "@types/varint": "^6.0.3",
     "@types/concat-stream": "^2.0.3",
     "@types/from2": "^2.3.6",
     "@types/node": "^25.0.10",
