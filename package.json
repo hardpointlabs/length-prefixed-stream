@@ -1,7 +1,7 @@
 {
   "name": "@hardpointlabs/length-prefixed-stream",
   "type": "module",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Streaming length prefixed buffers",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -22,8 +22,8 @@
     "@types/through2": "^2.0.41",
     "concat-stream": "^2.0.0",
     "from2": "^2.3.0",
-    "tape": "^4.9.2",
-    "through2": "^3.0.0",
+    "tape": "^5.0.0",
+    "through2": "^4.0.0",
     "typescript": "^5.9.3"
   },
   "scripts": {
