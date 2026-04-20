@@ -14,16 +14,16 @@
     "varint": "^6.0.0"
   },
   "devDependencies": {
-    "@types/varint": "^6.0.3",
     "@types/concat-stream": "^2.0.3",
     "@types/from2": "^2.3.6",
-    "@types/node": "^25.0.10",
+    "@types/node": "^25.6.0",
     "@types/tape": "^5.8.1",
     "@types/through2": "^2.0.41",
+    "@types/varint": "^6.0.3",
     "concat-stream": "^2.0.0",
     "from2": "^2.3.0",
-    "tape": "^5.0.0",
-    "through2": "^4.0.0",
+    "tape": "^5.9.0",
+    "through2": "^4.0.2",
     "typescript": "^5.9.3"
   },
   "scripts": {
